@@ -192,14 +192,14 @@
     transition: all 0.2s ease 0s;
 }
 
-.login_buttonAlready{
+.login_buttonAlready {
     display: flex;
     align-items: center;
     justify-content: left;
     margin-top: 10px;
 }
 
-.alreadytext{
+.alreadytext {
     margin-bottom: 0px;
     font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 14px;
@@ -209,22 +209,402 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.alreadylogin{
+.alreadylogin {
     cursor: pointer;
     text-decoration: none;
 }
 
-.alreadylogin > p {
+.alreadylogin>p {
     color: rgb(69, 106, 221);
     transition: all 0.2s ease 0s;
     text-decoration: underline rgb(69, 106, 221);
 }
 
-.signup_data{
+.signup_data {
     display: flex;
     flex-flow: row nowrap;
     -webkit-box-align: center;
     align-items: center;
     justify-content: left;
     padding: 0px;
+}
+
+.login_arrow {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.login_arrow>img {
+    position: relative;
+    height: 140px;
+    top: -80px;
+    margin: 0px auto;
+}
+
+.login_how {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+    margin-top: -50px;
+    padding-bottom: 100px;
+}
+
+.how_small {
+    color: rgb(49, 54, 90);
+    opacity: 0.8;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.how_big {
+    font-family: "Faktum SemiBold";
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: rgb(38, 45, 68);
+    margin-top: 24px;
+}
+
+.stroke {
+    position: relative;
+    bottom: 8px;
+    left: 112px;
+    width: 112px;
+}
+
+.how_summary {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.item1,
+.item2,
+.item3 {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.item1>img,
+.item2>img,
+.item3>img {
+    height: 200px;
+}
+
+.item1>p,
+.item2>p,
+.item3>p {
+    font-size: 21px;
+    margin-top: 48px;
+    width: 80%;
+    text-align: center;
+    color: rgb(38, 45, 68);
+    opacity: 0.8;
+}
+
+.login_highlights {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    background-color: rgb(38, 45, 68);
+    padding: 100px 0px;
+}
+
+.highlights_small {
+    opacity: 0.8;
+    letter-spacing: 1px;
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+}
+
+.highlights_big {
+    color: rgb(255, 255, 255);
+    margin-top: 24px;
+    font-family: "Faktum SemiBold";
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.highlights_box {
+    width: 100%;
+    overflow-x: scroll;
+    margin-top: 64px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.box_item {
+    width: 1750px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0px 48px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.highlights_img_box {
+    background-color: rgb(69, 106, 221);
+    opacity: 0.7;
+    border-radius: 5px;
+    transition: all 0.2s ease 0s;
+    width: 300px;
+    height: 200px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.highlights_img_box>img {
+    color: rgb(2, 117, 216);
+    text-decoration: none;
+}
+
+.highlights_invest {
+    color: rgb(255, 255, 255);
+    margin-top: 64px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.investors_container {
+    margin-top: 24px;
+    width: 900px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0px 48px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.investors_container>a>img {
+    opacity: 0.7;
+    transition: all 0.2s ease 0s
+}
+
+.investors_container>a>img:hover {
+    opacity: 1;
+    transition: all 0.2s ease 0s
+}
+
+.login-club {
+    width: 100%;
+    padding: 100px 48px;
+    background-color: rgb(248, 170, 30);
+    background-image: url(https://lunchclub.com/static/media/streak.274820c7.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.club_items {
+    max-width: 1400px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.club_big {
+    width: 50%;
+    margin-right: 48px;
+}
+
+.club_big>.club_p_small {
+    color: rgb(49, 54, 90);
+    opacity: 0.8;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.club_big>.club_p_big {
+    color: rgb(38, 45, 68);
+    margin-top: 24px;
+    font-family: "Faktum SemiBold";
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.club_small {
+    width: 30%;
+}
+
+.club_small>p {
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: rgb(49, 54, 90);
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.club_small_emailitems {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.club_small_emailitems>input {
+    margin-bottom: 0px;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    color: rgb(91, 91, 91);
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(91 91 91) 0px 0px 0px 1px inset;
+    appearance: none;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    padding: 0px 18px;
+    height: 44px;
+    width: 100%;
+}
+
+.club_small_emailitems>button {
+    margin: 0px 0px 0px -1px;
+    border-radius: 0px 6px 6px 0px;
+    white-space: nowrap;
+    background-color: rgb(69, 106, 221);
+    box-shadow: rgb(69 106 221) 0px 0px 0px 1px;
+    width: fit-content;
+    display: inline;
+    user-select: none;
+    max-width: 100%;
+    padding: 0px 16px;
+    color: rgb(255, 255, 255);
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    font-size: 14px;
+    cursor: pointer
+}
+
+.login_footer {
+    justify-content: space-between;
+    padding: 0px 48px;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.login_footer>a {
+    text-decoration: none;
+}
+
+.login_footer_link {
+    height: 40px;
+    background-color: rgb(244, 244, 243);
+    padding: 0px 8px;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+}
+
+.login_footer_link>p {
+    margin-bottom: 0px;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgb(69, 106, 221);
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+}
+
+.login_footer_box {
+    height: 20px;
+    background-color: rgb(69, 106, 221);
+    border-radius: 3px;
+    padding: 0px 8px;
+    margin-left: 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+}
+
+.login_footer_box>p {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    letter-spacing: 1px;
+    font-size: 8px;
+}
+
+.login_social {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.login_social>a>img {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.login_footer_privacy {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.login_footer_privacy>a {
+    text-decoration: none;
+}
+
+.login_footer_privacy>img {
+    height: 45px;
+    margin: 24px;
+    border-radius: 5px;
+    vertical-align: middle;
 }

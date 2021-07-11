@@ -1,0 +1,143 @@
+.loginpage {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.loginpage_logo {
+    margin-top: 48px;
+}
+
+.loginpage_logo>img {
+    width: 150px;
+    vertical-align: middle;
+}
+
+.loginpage_text {
+    font-family: "Inter ExtraBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: bolder;
+    font-size: 48px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    margin-bottom: 8px;
+    font-feature-settings: "cv11";
+    margin-top: 48px;
+}
+
+.loginpage>img {
+    margin: 24px auto 48px;
+    width: 600px;
+    vertical-align: middle;
+}
+
+.loginpage_main {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.loginpage_main>.loginpage_main_google {
+    margin: 0px;
+    width: 350px;
+    display: inline;
+    user-select: none;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(69, 106, 221);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: rgb(69 106 221) 0px 0px 0px 1px inset;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.loginpage_buttonbox {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.loginpage_buttonbox>img {
+    height: 18px;
+    width: 18px;
+    min-height: 18px;
+    min-width: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.loginpage_buttonbox>p {
+    margin-bottom: 0px;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgb(69, 106, 221);
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+}
+
+.loginpage_main>hr {
+    height: 1px;
+    color: rgb(224, 229, 247);
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 350px;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.loginpage_main>input {
+    width: 100%;
+    max-width: 350px;
+    margin: 2px auto;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    background-color: rgb(246, 246, 247);
+    height: 40px;
+    color: rgb(91, 91, 91);
+    -webkit-text-fill-color: rgb(91, 91, 91);
+    opacity: 1;
+    border-radius: 5px;
+    border: none;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: text;
+}
+
+.loginpage_main_send {
+    width: 350px;
+    display: inline;
+    user-select: none;
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(69, 106, 221);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: none;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}

@@ -4,7 +4,7 @@ import "animate.css"
 function Testimonials({ data1, data2 }) {
   return (
     <div className="testimonial_main ">
-      <div className="">
+      <div className="card">
         {data1.map((posts) => {
           return (
             <div className="card1" key={posts.id}>
@@ -26,7 +26,7 @@ function Testimonials({ data1, data2 }) {
           );
         })}
       </div>
-      <div>
+      <div className="card_animation">
         {data2.map((posts) => {
           return (
             <div className="card2" key={posts.id}>

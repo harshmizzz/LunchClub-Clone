@@ -3,7 +3,7 @@
     padding: 16px;
     position: relative;
     border-radius: 5px;
-    animation: slide-in-blurred-bottom 4s cubic-bezier(0.230, 1.000, 0.320, 1.000) infinite both;
+    overflow: hidden;
 }
 
 .card2 {
@@ -11,49 +11,89 @@
     padding: 16px;
     position: relative;
     border-radius: 5px;
+    overflow: hidden;
 }
 
-@keyframes slide-in-blurred-bottom {
+.card_animation>* {
+    position: absolute;
+    right: 5%;
+    animation: 16s autoplay6 infinite linear;
+}
+
+.card>* {
+    position: absolute;
+    left: 50%;
+    animation: 16s autoplay6 infinite ease-in-out;
+}
+
+@keyframes autoplay6 {
     0% {
-
-        transform: translateY(1000px) scaleY(3.5) scaleX(0.2);
-        transform-origin: 50% 100%;
-        filter: blur(100px);
-        opacity: 0;
-        display: none;
+        opacity: 0.0
     }
 
-    25% {
-        transform: translateY(700px) scaleY(2) scaleX(.4);
-        transform-origin: 50% 100% ;
-        filter: blur(70px);
-        opacity: .1;
-        display: none;
+    4% {
+        opacity: 1.0
     }
 
-    50% {
-        opacity: .3;
-        display: none;
+    33.33% {
+        opacity: 1.0
     }
 
-    75% {display: none;
-        opacity: .6;
+    37.33% {
+        opacity: 0.0
     }
-
-
-
-
 
     100% {
-        
-        -webkit-transform: translateY(0) scaleY(1) scaleX(1);
-        transform: translateY(0) scaleY(1) scaleX(1);
-        -webkit-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-filter: blur(0);
-        filter: blur(0);
-        opacity: 1;
+        opacity: 0.0
     }
+}
+
+.card>*:nth-child(1) {
+    animation-delay: 0s
+}
+
+.card>*:nth-child(2) {
+    animation-delay: 2s
+}
+
+.card>*:nth-child(3) {
+    animation-delay: 4s
+}
+
+.card>*:nth-child(4) {
+    animation-delay: 8s
+}
+
+.card>*:nth-child(5) {
+    animation-delay: 12s
+}
+
+.card>*:nth-child(6) {
+    animation-delay: 16s;
+}
+
+.card_animation>*:nth-child(1) {
+    animation-delay: 0s
+}
+
+.card_animation>*:nth-child(2) {
+    animation-delay: 2s
+}
+
+.card_animation>*:nth-child(3) {
+    animation-delay: 4s
+}
+
+.card_animation>*:nth-child(4) {
+    animation-delay: 8s
+}
+
+.card_animation>*:nth-child(5) {
+    animation-delay: 12s
+}
+
+.card_animation>*:nth-child(6) {
+    animation-delay: 16s;
 }
 
 
@@ -90,7 +130,8 @@
     transition: all 0.2s ease 0s;
 }
 
-.card_summary {
+.card1_summary,
+.card2_summary {
     font-size: 18px;
     color: rgb(38, 45, 68);
     transition: all 0.2s ease 0s;
@@ -111,7 +152,9 @@
 }
 
 @media screen and (min-width: 601px) {
-    .card {
+
+    .card1,
+    .card2 {
         width: 300px;
         margin-bottom: 24px;
     }
