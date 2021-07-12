@@ -1,0 +1,91 @@
+.aftersignup {
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    padding-bottom: 128px;
+    padding-top: 24px;
+    width: 70%;
+    max-width: 900px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.after_main {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 128px 10px;
+}
+
+.after_main_logo {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.after_main_logo>img {
+    margin: 0px auto;
+    cursor: default;
+    width: 33vw;
+    max-width: 220px;
+    min-width: 150px;
+}
+
+.after_main>img {
+    margin: 64px auto;
+    width: 90%;
+    vertical-align: middle;
+}
+
+.after_main>input {
+    width: 100%;
+    max-width: 350px;
+    margin: 2px auto;
+    padding: 8px 16px;
+    background-color: rgb(246, 246, 247);
+    height: 40px;
+    color: rgb(91, 91, 91);
+    -webkit-text-fill-color: rgb(91, 91, 91);
+    opacity: 1;
+    border-radius: 5px;
+    border: none;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: text;
+}
+
+.after_main_empty {
+    width: 100%;
+    max-width: 350px;
+    min-height: 25px;
+    margin: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+.after_main>a>button {
+    width: 350px;
+    display: inline;
+    user-select: none;
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(69, 106, 221);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: none;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+    font-weight: 700;
+}

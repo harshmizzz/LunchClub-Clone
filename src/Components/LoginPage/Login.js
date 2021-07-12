@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
+import firebase from "firebase";
 import axios from "axios";
+import { login } from "../Features/userSlice";
+import { auth } from "../Features/firebase";
 import Testimonials from "./Testimonials";
+import { useDispatch } from "react-redux";
 function Login() {
   const [data1, setdata] = useState([]);
   const [data2, setdata2] = useState([]);
-
+  const [email, setemail] = useState("");
+  const dispatch = useDispatch();
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("https://reqres.in/api/users?page=1");
@@ -22,6 +27,67 @@ function Login() {
     };
     fetchPosts();
   }, []);
+
+  const registerGoogle = () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        var credential = result.credential;
+        var token = credential.accessToken;
+        var user = result.user;
+      })
+      .then((userAuth) => {
+        userAuth.user.then(() => {
+          dispatch(
+            login({
+              email: userAuth.user.email,
+              uid: userAuth.user.uid,
+            })
+          );
+        });
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        var email = error.email;
+        var credential = error.credential;
+      });
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        window.location = "/weekly";
+      }
+    });
+  };
+
+  const register = () => {
+    var actionCodeSettings = {
+      url: "http://localhost:3000/weekly",
+      handleCodeInApp: true,
+    };
+    auth
+      .sendSignInLinkToEmail(email, actionCodeSettings)
+      .then(() => {
+        window.localStorage.setItem("emailForSignIn", email);
+      })
+      .then((userAuth) => {
+        userAuth.user.then(() => {
+          dispatch(
+            login({
+              email: userAuth.user.email,
+              uid: userAuth.user.uid,
+            })
+          );
+        });
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        console.log(errorCode);
+        var errorMessage = error.message;
+        console.log(errorMessage);
+        // ...
+      });
+  };
   return (
     <div className="login">
       <div className="top_container">
@@ -46,7 +112,7 @@ function Login() {
               professional impact. Powered by AI.
             </p>
             <div className="signup_buttons">
-              <button className="signup_google">
+              <button onClick={registerGoogle} className="signup_google">
                 <img
                   src="https://lunchclub.com/static/media/google.b1154755.svg"
                   alt="google"
@@ -56,11 +122,14 @@ function Login() {
               <p className="signup_or">or</p>
               <div className="signup_email">
                 <input
-                  type="email"
+                  type={email}
+                  onChange={(e) => setemail(e.target.value)}
                   className="signup_emailInput"
                   placeholder="Enter your Email"
                 />
-                <button className="signup_emailSubmit">Get started</button>
+                <button onClick={register} className="signup_emailSubmit">
+                  Get started
+                </button>
               </div>
             </div>
             <div className="login_buttonAlready">
@@ -198,8 +267,12 @@ function Login() {
               Create an account in minutes and get your first meeting scheduled!
             </p>
             <div className="club_small_emailitems">
-              <input type="email" placeholder="Enter Your Email" />
-              <button> Get Started</button>
+              <input
+                type={email}
+                onChange={(e) => setemail(e.target.value)}
+                placeholder="Enter Your Email"
+              />
+              <button onClick={register}> Get Started</button>
             </div>
           </div>
         </div>

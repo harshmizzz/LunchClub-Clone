@@ -1,0 +1,282 @@
+.registerProfile {
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    padding-bottom: 128px;
+    padding-top: 24px;
+    width: 70%;
+    max-width: 900px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.progress_line_animate1 {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 50%;
+    height: 1px;
+    opacity: 1;
+    background-color: rgb(69, 106, 221);
+    transition: all 0.2s ease 0s;
+}
+
+.progrss_line1 {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 50%;
+    height: 1px;
+    opacity: 1;
+    background-color: rgb(69, 106, 221);
+    transition: all 0.2s ease 0s;
+}
+
+.invisible {
+    opacity: 0 !important;
+}
+
+.register_heading {
+    margin: 64px auto 24px;
+    max-width: 500px;
+}
+
+.register_heading>p {
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    margin-bottom: 8px;
+    font-feature-settings: "cv11";
+}
+
+.register_icons {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.register_profileData {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.profileData {
+    width: 48px;
+    height: 48px;
+    margin: 0px 8px;
+    transition: all 0.2s ease 0s;
+    cursor: default;
+}
+
+.caraousel {
+    margin-bottom: -1px;
+    vertical-align: middle;
+}
+
+.register_profileBio {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.register_profileBio>img {
+    width: 48px;
+    height: 48px;
+    margin: 0px 8px;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+    filter: grayscale(100%) opacity(30%);
+}
+
+.register_box {
+    border: 1px solid rgb(224, 229, 247);
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 48px 64px;
+    margin-bottom: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+}
+
+.register_box_heading {
+    margin: 0px auto 24px;
+    max-width: 500px;
+}
+
+.register_box_heading_small {
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    margin-bottom: 8px;
+    font-feature-settings: "cv11";
+}
+
+.register_box_heading_big {
+    margin-bottom: 0px;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    font-feature-settings: "cv11";
+}
+
+.register_box>img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    margin: 24px auto;
+    object-fit: cover;
+}
+
+.register_box>p {
+    margin-bottom: 0px;
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    font-weight: 700;
+    font-feature-settings: "cv11";
+}
+
+.optional {
+    color: rgb(172, 172, 172) !important;
+}
+
+.register_upload {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+    margin-top: 24px;
+}
+
+.register_upload>button {
+    width: 100%;
+    display: inline;
+    user-select: none;
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(69, 106, 221);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: none;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.register_upload>button>input {
+    display: none;
+}
+
+.register_socialLinks {
+    max-width: 320px;
+    margin: 0px auto;
+}
+
+.register_socialLinks_main {
+    width: 50%;
+    margin: 24px auto 0px;
+}
+
+.register_linkedin,
+.register_twitter {
+    display: flex;
+    margin: 4px;
+}
+
+.register_linkedin>img,
+.register_twitter>img {
+    width: 24px;
+    height: 24px;
+    margin-top: 8px;
+    margin-right: 16px;
+}
+
+.register_linkedin>input,
+.register_twitter>input {
+    width: 100%;
+    max-width: 350px;
+    margin: 2px auto;
+    padding: 8px 16px;
+    background-color: rgb(246, 246, 247);
+    height: 40px;
+    color: rgb(91, 91, 91);
+    -webkit-text-fill-color: rgb(91, 91, 91);
+    opacity: 1;
+    border-radius: 5px;
+    border: none;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: text;
+}
+
+.register_button {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+    max-width: 500px;
+    margin: 24px auto;
+    flex-wrap: wrap-reverse;
+    gap: 20px;
+    font-weight: 800;
+}
+
+.register_back {
+    width: 240px;
+    display: inline;
+    user-select: none;
+    margin: 4px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(69, 106, 221);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: rgb(69 106 221) 0px 0px 0px 1px inset;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.register_next {
+    width: 240px;
+    display: inline;
+    user-select: none;
+    margin: 4px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(69, 106, 221);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: none;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
