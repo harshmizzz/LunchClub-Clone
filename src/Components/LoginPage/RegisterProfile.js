@@ -107,7 +107,7 @@ function RegisterProfile() {
       </div>
       <div>
         <div className="register_icons">
-          <div className="register_profileData">
+          <div className="register_profileData ">
             <img
               className="profileData"
               src="https://lunchclub.com/static/media/social.2592a83f.svg"

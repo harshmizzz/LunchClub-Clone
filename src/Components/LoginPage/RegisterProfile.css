@@ -69,12 +69,14 @@
     margin: 0px 8px;
     transition: all 0.2s ease 0s;
     cursor: default;
+    filter: none !important;
 }
 
 .caraousel {
     margin-bottom: -1px;
     vertical-align: middle;
 }
+
 
 .register_profileBio {
     display: flex;

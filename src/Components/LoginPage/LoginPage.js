@@ -53,13 +53,13 @@ function LoginPage() {
       });
       auth.onAuthStateChanged(user => {
         if(user) {
-          window.location = '/weekly';
+          window.location = '/main';
         }
       });
   };
   const register = () => {
     var actionCodeSettings = {
-      url: "http://localhost:3000/weekly",
+      url: "http://localhost:3000/main",
       handleCodeInApp: true,
     };
     auth

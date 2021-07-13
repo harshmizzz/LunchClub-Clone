@@ -14,6 +14,9 @@ import AfterSignUp from "./Components/LoginPage/AfterSignUp";
 import Details from "./Components/LoginPage/Details";
 import RegisterProfile from "./Components/LoginPage/RegisterProfile";
 import RegisterBio from "./Components/LoginPage/RegisterBio";
+import Verification from "./Components/LoginPage/Verification";
+import Main from "./Components/MainPage/Main";
+import PageSelector from "./PageSelector";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,7 +40,7 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/" exact>
-            <Login />
+          <PageSelector />
           </Route>
           <Route path="/weekly">
             <LoginPage />
@@ -54,7 +57,25 @@ function App() {
           <Route path="/registerbio">
             <RegisterBio />
           </Route>
+          <Route path="/verification">
+            <Verification />
+          </Route>
+          <Route to="/main">
+            <Main />
+          </Route>
         </Switch>
+
+        {/* {!user ? (
+          
+        ) : (
+          <div>
+            <Header />
+
+            <Switch>
+              
+            </Switch>
+          </div>
+        )} */}
       </div>
     </Router>
   );

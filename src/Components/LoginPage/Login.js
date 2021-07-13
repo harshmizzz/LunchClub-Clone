@@ -2,15 +2,19 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import firebase from "firebase";
 import axios from "axios";
-import { login } from "../Features/userSlice";
+import { login, selectUser } from "../Features/userSlice";
 import { auth } from "../Features/firebase";
 import Testimonials from "./Testimonials";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import Header from "../MainPage/Header";
+import Main from "../MainPage/Main";
 function Login() {
   const [data1, setdata] = useState([]);
   const [data2, setdata2] = useState([]);
   const [email, setemail] = useState("");
   const dispatch = useDispatch();
+  var history = useHistory();
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("https://reqres.in/api/users?page=1");
@@ -55,14 +59,14 @@ function Login() {
       });
     auth.onAuthStateChanged((user) => {
       if (user) {
-        window.location = "/weekly";
+        window.location = "/after";
       }
     });
   };
 
   const register = () => {
     var actionCodeSettings = {
-      url: "http://localhost:3000/weekly",
+      url: "http://localhost:3000/after",
       handleCodeInApp: true,
     };
     auth
@@ -88,6 +92,8 @@ function Login() {
         // ...
       });
   };
+  const user = useSelector(selectUser);
+
   return (
     <div className="login">
       <div className="top_container">

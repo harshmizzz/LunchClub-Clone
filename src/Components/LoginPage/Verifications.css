@@ -1,0 +1,114 @@
+.progress_line_animate2 {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 50%;
+    height: 1px;
+    opacity: 1;
+    background-color: rgb(69, 106, 221);
+    transition: all 0.2s ease 0s;
+}
+
+.progrss_line4 {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 50%;
+    height: 1px;
+    opacity: 1;
+    background-color: rgb(69, 106, 221);
+    transition: all 0.2s ease 0s;
+}
+
+.verification_heading {
+    box-sizing: inherit;
+    margin: 64px auto 24px;
+    max-width: 500px;
+}
+
+.verification_heading_big {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    text-align: center;
+    box-sizing: inherit;
+    margin-top: 0;
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    margin-bottom: 8px;
+    font-feature-settings: "cv11";
+}
+
+.verification_heading_small {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    text-align: center;
+    box-sizing: inherit;
+    margin-top: 0;
+    margin-bottom: 0px;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    font-feature-settings: "cv11";
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.verification_container {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: inherit;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgb(69, 106, 221);
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.verification_container>img {
+    vertical-align: middle;
+    margin-bottom: 64px;
+    margin-top: 24px;
+    width: 200px;
+}
+
+.verification_container_text {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    text-align: center;
+    box-sizing: inherit;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgb(91, 91, 91);
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+    margin: auto auto 24px;
+    max-width: 400px;
+}
+
+.verification_clickable {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    text-align: center;
+    box-sizing: inherit;
+    margin-top: 0;
+    margin-bottom: 0px;
+    display: inline-block;
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.45;
+    color: rgb(69, 106, 221);
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+    font-weight: 700;
+}

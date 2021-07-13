@@ -1,6 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./RegisterBio.css";
+import { auth } from "../Features/firebase";
 function RegisterBio() {
+  let history = useHistory();
+  function handleback() {
+    history.push("/registerprofile");
+  }
+  function handlenext() {
+    history.push("/verification");
+    auth.currentUser.sendEmailVerification().then(() => {
+      console.log("send");
+    });
+  }
+
   return (
     <div className="registerbio">
       <div className="progress_bar">
@@ -91,7 +104,10 @@ function RegisterBio() {
       </div>
       <div>
         <div className="register_icons">
-          <div className="register_profileData">
+          <div
+            onClick={handleback}
+            className="register_profileData profiledata"
+          >
             <img
               className="profileData"
               src="https://lunchclub.com/static/media/social.2592a83f.svg"
@@ -111,9 +127,69 @@ function RegisterBio() {
           </div>
         </div>
         <div className="registerbio_box">
-            <div className="registerbio_heading">
-                
+          <div className="registerbio_heading">
+            <p className="registerbio_heading_big">
+              How would you like to be intro'd?
+            </p>
+            <p className="registerbio_heading_small">
+              Tell us whatever you'd like to share with your matches.
+            </p>
+          </div>
+          <textarea placeholder="Bio" cols="30" rows="10"></textarea>
+          <p className="registerbio_warning">
+            0 characters (minimum 15 characters)
+          </p>
+          <div className="registerbio_sample">
+            <img
+              src="https://lunchclub.com/static/media/email-icon.ef184c2c.svg"
+              alt="Examples"
+            />
+            <div>Sample intros</div>
+          </div>
+          <div className="registerbio_sample_main">
+            <div className="registerbio_sample_main_item">
+              <img
+                src="https://lunchclub.com/static/media/green-avatar.21004c97.svg"
+                alt="Avatar"
+              />
+              <div className="register_bio_sample_main_item_container">
+                <p>
+                  Kim is a Product Designer at Facebook who writes about design
+                  in everyday life. She loves working on impactful products, and
+                  talking to people about them.
+                </p>
+              </div>
             </div>
+            <div className="registerbio_sample_main_item">
+              <img
+                src="https://lunchclub.com/static/media/red-avatar.ef89bd8b.svg"
+                alt="Avatar"
+              />
+              <div className="register_bio_sample_main_item_container">
+                <p>
+                  Sami is a mechanical engineer who is working on a new startup
+                  idea in the EV battery space.
+                </p>
+              </div>
+            </div>
+            <div className="registerbio_sample_main_item">
+              <img
+                src="https://lunchclub.com/static/media/orange-avatar.60ea375b.svg"
+                alt="Avatar"
+              />
+              <div className="register_bio_sample_main_item_container">
+                <p>Omar is an opera singer who writes his own blog.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="registerbio_button">
+          <button onClick={handleback} className="registerbio_back">
+            Back
+          </button>
+          <button onClick={handlenext} className="registerbio_next">
+            Next
+          </button>
         </div>
       </div>
     </div>
