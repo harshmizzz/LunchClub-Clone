@@ -2,16 +2,6 @@ import React from "react";
 import { auth } from "../Features/firebase";
 import "./AfterSignUp.css";
 function AfterSignUp() {
-  function signout() {
-    auth
-      .signOut()
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  }
   return (
     <div className="aftersignup">
       <div className="after_main">
@@ -31,7 +21,6 @@ function AfterSignUp() {
         <a href="/details">
           <button>Lets Get Started</button>
         </a>
-        <button onClick={signout}>ddd</button>
       </div>
     </div>
   );
