@@ -5,6 +5,7 @@ import firebase from "firebase";
 import { auth } from "../Features/firebase";
 function LoginPage() {
   const [email, setemail] = useState("");
+  const [name, setname] = useState("");
   const dispatch = useDispatch();
   const login = () => {
     if (auth.isSignInWithEmailLink(window.location.href)) {
@@ -19,13 +20,16 @@ function LoginPage() {
             login({
               email: userAuth.email,
               uid: userAuth.uid,
+              name: userAuth.displayName,
             })
           );
         })
-        .catch((error) => {});
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
-  
+
   const registerGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     auth
@@ -36,14 +40,20 @@ function LoginPage() {
         var user = result.user;
       })
       .then((userAuth) => {
-        userAuth.user.then(() => {
-          dispatch(
-            login({
-              email: userAuth.user.email,
-              uid: userAuth.user.uid,
-            })
-          );
-        });
+        userAuth.user
+          .updateProfile({
+            displayName: name,
+          })
+          .then(() => {
+            dispatch(
+              login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                // name: userAuth.displayName,,
+                name: userAuth.user.name,
+              })
+            );
+          });
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -51,11 +61,11 @@ function LoginPage() {
         var email = error.email;
         var credential = error.credential;
       });
-      auth.onAuthStateChanged(user => {
-        if(user) {
-          window.location = '/main';
-        }
-      });
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        window.location = "/main";
+      }
+    });
   };
   const register = () => {
     var actionCodeSettings = {
@@ -72,6 +82,8 @@ function LoginPage() {
           dispatch(
             login({
               email: userAuth.user.email,
+              // name: userAuth.displayName,
+              name: userAuth.user.name,
               uid: userAuth.user.uid,
             })
           );

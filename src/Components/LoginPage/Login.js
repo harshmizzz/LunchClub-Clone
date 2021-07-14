@@ -7,19 +7,18 @@ import { auth } from "../Features/firebase";
 import Testimonials from "./Testimonials";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Header from "../MainPage/Header";
-import Main from "../MainPage/Main";
 function Login() {
   const [data1, setdata] = useState([]);
   const [data2, setdata2] = useState([]);
   const [email, setemail] = useState("");
+  const [name ,setname] = useState("");
   const dispatch = useDispatch();
   var history = useHistory();
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("https://reqres.in/api/users?page=1");
       setdata(res.data.data);
-      console.log(data1);
+      
     };
     fetchPosts();
   }, []);
@@ -27,7 +26,6 @@ function Login() {
     const fetchPosts = async () => {
       const res = await axios.get("https://reqres.in/api/users?page=2");
       setdata2(res.data.data);
-      console.log(data2);
     };
     fetchPosts();
   }, []);
@@ -47,6 +45,7 @@ function Login() {
             login({
               email: userAuth.user.email,
               uid: userAuth.user.uid,
+              name: userAuth.user.displayName,
             })
           );
         });
@@ -80,6 +79,7 @@ function Login() {
             login({
               email: userAuth.user.email,
               uid: userAuth.user.uid,
+              name:userAuth.user.displayName,
             })
           );
         });
@@ -96,6 +96,7 @@ function Login() {
 
   return (
     <div className="login">
+      {console.log(name)}
       <div className="top_container">
         <div className="login_header">
           <div className="logo">

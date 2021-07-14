@@ -6,7 +6,6 @@ import { auth } from "./Components/Features/firebase";
 import Login from "./Components/LoginPage/Login";
 import LoginPage from "./Components/LoginPage/LoginPage";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { selectUser } from "./Components/Features/userSlice";
 import { login, logout } from "./Components/Features/userSlice";
 import { useSelector } from "react-redux";
@@ -16,7 +15,10 @@ import RegisterProfile from "./Components/LoginPage/RegisterProfile";
 import RegisterBio from "./Components/LoginPage/RegisterBio";
 import Verification from "./Components/LoginPage/Verification";
 import Main from "./Components/MainPage/Main";
-import PageSelector from "./PageSelector";
+import Home from "./Components/MainPage/Home";
+import Invite from "./Components/MainPage/Invite";
+import Connections from "./Components/MainPage/Connections";
+import Chat from "./Components/MainPage/Chat";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,6 +28,7 @@ function App() {
           login({
             email: userAuth.email,
             uid: userAuth.uid,
+            name: userAuth.displayName,
           })
         );
       } else {
@@ -40,7 +43,11 @@ function App() {
       <div className="app">
         <Switch>
           <Route path="/" exact>
-          <PageSelector />
+            <Login />
+          </Route>
+          <Route path="/main" exact>
+            <Header />
+            <Main />
           </Route>
           <Route path="/weekly">
             <LoginPage />
@@ -60,22 +67,23 @@ function App() {
           <Route path="/verification">
             <Verification />
           </Route>
-          <Route to="/main">
-            <Main />
+          <Route path="/home" exact>
+            <Header />
+            <Home />
+          </Route>
+          <Route path="/invite" exact>
+            <Header />
+            <Invite />
+          </Route>
+          <Route path="/connections" exact>
+            <Header />
+            <Connections />
+          </Route>
+          <Route path="/chat" exact>
+            <Header />
+            <Chat />
           </Route>
         </Switch>
-
-        {/* {!user ? (
-          
-        ) : (
-          <div>
-            <Header />
-
-            <Switch>
-              
-            </Switch>
-          </div>
-        )} */}
       </div>
     </Router>
   );

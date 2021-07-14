@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.header_logo_main>img {
+.header_logo_main>a>img {
     height: 35px;
     cursor: pointer;
     margin: 16px;
@@ -314,7 +314,7 @@
     justify-content: center;
 }
 
-.header_hamburger_main:hover{
+.header_hamburger_main:hover {
     cursor: pointer;
     background-color: lightgrey;
     border-radius: 10px;

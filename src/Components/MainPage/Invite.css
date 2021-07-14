@@ -1,0 +1,443 @@
+.invite {
+    flex: 1 1 0%;
+    background-color: rgb(246, 246, 247);
+    padding-top: 64px;
+}
+
+.invite_container {
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    padding-bottom: 128px;
+    padding-top: 24px;
+    width: 70%;
+    max-width: 900px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.invite_containerTop {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(224, 229, 247);
+    background-color: rgb(255, 255, 255);
+    margin: 0px auto;
+    width: 100%;
+    max-width: 872px;
+    margin-bottom: 8px;
+    padding: 64px 175px;
+}
+
+.invite_topHeading {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 700;
+    box-sizing: inherit;
+    margin-top: 0;
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    font-feature-settings: "cv11";
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.invite_topsubHeading {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    box-sizing: inherit;
+    margin-top: 0;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgb(91, 91, 91);
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.invite_topEmailbox {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.invite_topEmailinput {
+    width: 100%;
+    margin-right: 4px;
+    min-width: 350px;
+}
+
+.invite_topEmailinput>input {
+    width: 100%;
+    max-width: 350px;
+    margin: 2px auto;
+    padding: 8px 16px;
+    background-color: rgb(246, 246, 247);
+    height: 40px;
+    color: rgb(91, 91, 91);
+    -webkit-text-fill-color: rgb(91, 91, 91);
+    opacity: 1;
+    border-radius: 5px;
+    border: none;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: text;
+}
+
+.invite_topEmailbox>button {
+    width: 100%;
+    display: inline;
+    user-select: none;
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(224, 229, 247);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: rgb(224 229 247) 0px 0px 0px 1px inset;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: default;
+    transition: all 0.2s ease 0s;
+}
+
+.invite_topInvitebox {
+    display: inline;
+}
+
+.invite_topInvite {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.invite_topInvite>input {
+    border-radius: 5px;
+    padding: 8px 16px;
+    background-color: rgb(246, 246, 247);
+    width: 100%;
+    height: 40px;
+    margin: 2px 4px 2px auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+    font-size: 14px;
+    max-width: 350px;
+    min-width: 350px;
+    color: rgb(71, 168, 165);
+}
+
+.invite_topInvite>button {
+    width: 100%;
+    display: inline;
+    user-select: none;
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(69, 106, 221);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: none;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.invite_topMessage {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease 0s;
+    min-height: fit-content;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 1px solid rgb(202, 202, 208);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    overflow: visible;
+    margin-top: 15px;
+}
+
+
+.inviteMessageBox {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 16px 0px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.inviteMessage {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+}
+
+.inviteMessage>img {
+    width: 17px;
+    height: 17px;
+    min-height: 17px;
+    min-width: 17px;
+    margin: 0px 16px;
+}
+
+.inviteMessage>p {
+    margin-bottom: 0px;
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    font-feature-settings: "cv11";
+}
+
+.invite_containerMiddle {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(224, 229, 247);
+    background-color: rgb(255, 255, 255);
+    margin: 0px auto;
+    width: 100%;
+    max-width: 872px;
+    margin-bottom: 8px;
+    padding: 48px;
+}
+
+.invite_containerMiddle>.big {
+    margin-bottom: 4px;
+    font-family: "Inter Bold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgb(17, 17, 17);
+    font-feature-settings: "cv11";
+}
+
+.invite_containerMiddle>.small {
+    margin-bottom: 16px;
+    font-family: "Inter Light", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: rgb(172, 172, 172);
+    font-feature-settings: "cv11";
+}
+
+.invite_MiddleSocial {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 24px;
+}
+
+.inviteSocialIcons {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.invite_MiddleSocial>textarea {
+    max-width: 450px;
+    min-height: 120px;
+    width: 100%;
+    background-color: rgb(246, 246, 247);
+    color: rgb(172, 172, 172);
+    text-align: left;
+    padding: 16px;
+    margin: 0px 16px;
+    border-radius: 5px;
+    resize: none;
+    border: none;
+}
+
+.invite_MiddleButton {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.invite_MiddleButton>button {
+    width: fit-content;
+    display: inline;
+    user-select: none;
+    margin: 0px auto;
+    max-width: 100%;
+    padding: 0px 16px;
+    background-color: rgb(69, 106, 221);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-feature-settings: "cv11";
+    border: none;
+    height: 44px;
+    box-shadow: none;
+    font-family: "Inter SemiBold", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.invite_containerBottom>:first-child {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: rgb(69, 106, 221);
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0px;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
+.invite_containerBottom>div>p {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 400;
+    box-sizing: inherit;
+    margin-top: 0;
+    margin-bottom: 0px;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: rgb(172, 172, 172);
+    font-feature-settings: "cv11";
+    max-width: 872px;
+    letter-spacing: 1px;
+    position: relative;
+    text-align: left;
+}
+
+.inviteBottom {
+    background-color: rgb(231, 231, 234);
+    color: rgb(91, 91, 91);
+    height: 91px;
+    max-width: 872px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: none;
+    margin: auto;
+}
+
+.inviteBottom>p {
+    margin-bottom: 0px;
+    font-family: "Inter Regular", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgb(91, 91, 91);
+    font-feature-settings: "cv11";
+    -webkit-font-smoothing: antialiased;
+}
+
+.invite_MiddleButton  :hover {
+    background-color: rgba(2, 2, 194, 0.925);
+}
+
+.inviteSocialIcons :hover{
+    cursor: pointer;
+    opacity: .8;
+}
+
+.inviteMessageBox:hover{
+    background-color: lightgrey;
+}
+
+.invite_topInvite > button:hover{
+    background-color: rgba(14, 4, 160, 0.89);
+}

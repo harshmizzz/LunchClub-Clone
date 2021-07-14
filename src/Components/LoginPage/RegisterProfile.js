@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import "./RegisterProfile.css";
 function RegisterProfile() {

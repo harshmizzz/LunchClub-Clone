@@ -11,14 +11,17 @@ import InputOption from "./InputOption";
 import RadioButtonCheckedOutlinedIcon from "@material-ui/icons/RadioButtonCheckedOutlined";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import firebase from "firebase";
 import { useDispatch } from "react-redux";
 import { auth } from "../Features/firebase";
 import { logout } from "../Features/userSlice";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Header() {
   const [toggle, setToggle] = React.useState(false);
   const [display, setWidth] = React.useState("");
-
+  const user = firebase.auth().currentUser;
+  const dispatch = useDispatch();
   const showMenu = () => {
     setToggle(!toggle);
     if (toggle === true) {
@@ -27,22 +30,24 @@ function Header() {
       setWidth("block");
     }
   };
-const history = useHistory();
-  const dispatch = useDispatch();
+
+  const history = useHistory();
   const logoutofApp = () => {
     dispatch(logout());
     auth.signOut();
-    history.push("/")
+    history.push("/");
   };
 
   return (
     <div className="header">
       <div className="header_items">
         <div className="header_logo_main">
-          <img
-            src="https://lunchclub.com/static/media/logo2.4c4b75fd.svg"
-            alt=""
-          />
+          <Link to="/home">
+            <img
+              src="https://lunchclub.com/static/media/logo2.4c4b75fd.svg"
+              alt=""
+            />
+          </Link>
           <div className="header_searchBox">
             <div className="header_searchBoxmain">
               <input
@@ -54,63 +59,89 @@ const history = useHistory();
           </div>
         </div>
         <div className="header_buttons">
+          <Link to="/home">
+            <a href="#" className="header_buttons_links">
+              <div className="header_button_container">
+                <InputOption
+                  Icon={HomeRoundedIcon}
+                  color="#1f2020"
+                  fontSize="large"
+                />
+              </div>
+            </a>
+          </Link>
+          <Link to="/main">
+            <a href="#" className="header_buttons_links">
+              <div className="header_button_container">
+                <InputOption
+                  fontSize="large"
+                  Icon={TodayIcon}
+                  color="#1f2020"
+                />
+              </div>
+            </a>
+          </Link>
+
           <a href="#" className="header_buttons_links">
-            <div className="header_button_container">
-              <InputOption
-                Icon={HomeRoundedIcon}
-                color="#1f2020"
-                fontSize="large"
-              />
-            </div>
+            <Link to="/Invite">
+              <div className="header_button_container">
+                <InputOption
+                  Icon={MailOutlineRoundedIcon}
+                  color="#1f2020"
+                  fontSize="large"
+                />
+              </div>
+            </Link>
           </a>
-          <a href="#" className="header_buttons_links">
-            <div className="header_button_container">
-              <InputOption fontSize="large" Icon={TodayIcon} color="#1f2020" />
-            </div>
-          </a>
-          <a href="#" className="header_buttons_links">
-            <div className="header_button_container">
-              <InputOption
-                Icon={MailOutlineRoundedIcon}
-                color="#1f2020"
-                fontSize="large"
-              />
-            </div>
-          </a>
-          <a href="#" className="header_buttons_links">
-            <div className="header_button_container">
-              <InputOption
-                Icon={PeopleRoundedIcon}
-                color="#1f2020"
-                fontSize="large"
-              />
-            </div>
-          </a>
-          <a href="#" className="header_buttons_links">
-            <div className="header_button_container">
-              <InputOption
-                Icon={ChatBubbleOutlinedIcon}
-                color="#1f2020"
-                fontSize="large"
-              />
-            </div>
-          </a>
+
+          <Link to="/connections">
+            <a href="#" className="header_buttons_links">
+              <div className="header_button_container">
+                <InputOption
+                  Icon={PeopleRoundedIcon}
+                  color="#1f2020"
+                  fontSize="large"
+                />
+              </div>
+            </a>
+          </Link>
+          <Link to="/chat">
+            <a href="#" className="header_buttons_links">
+              <div className="header_button_container">
+                <InputOption
+                  Icon={ChatBubbleOutlinedIcon}
+                  color="#1f2020"
+                  fontSize="large"
+                />
+              </div>
+            </a>
+          </Link>
           <div onClick={showMenu} className="header_button_profile">
             <div className="header_profile_img">
-              <img
-                src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659651_960_720.png"
-                alt=""
-              />
+              {user && (
+                <>
+                  <img src={user.photoURL} alt="" />
+                </>
+              )}
               <ArrowDropDownOutlinedIcon color="#1f2020" />
             </div>
             <div style={{ display }} className="header_hamburger">
               <div className="header_hamburger_main">
                 <div className="header_hamburger_profile">
                   <div className="header_hamburger_profile_name">
-                    <img src="https://cdn.pixabay.com/photo/2015/03/04/22/35/head-659651_960_720.png" />
+                    {user && (
+                      <>
+                        <img src={user.photoURL} alt="" />
+                      </>
+                    )}
                     <div className="header_hamburger_profile_data">
                       <p className="header_hamburger_profile_data_big">
-                        Harsh Mishra
+                        {user && (
+                          <>
+                            {" "}
+                            <p>{user.displayName}</p>{" "}
+                          </>
+                        )}
                       </p>
                       <p className="header_hamburger_profile_data_small">
                         View Profile
@@ -120,7 +151,10 @@ const history = useHistory();
                   <a>
                     <div className="header_hamburger_clubpoints">
                       <p>5</p>
-                      <RadioButtonCheckedOutlinedIcon fontSize="small" />
+                      <RadioButtonCheckedOutlinedIcon
+                        fontSize="small"
+                        color="secondary"
+                      />
                     </div>
                   </a>
                 </div>
