@@ -13,4 +13,5 @@ July 14 | 7 |Build the main page and all the sub components and linked with head
 July 15 | 1 |setup the storage and database
 |----|-----|-------|
 July 16 | 2 | Fixed the email login and fixed all the bugs in signup and added firebase storage
-
+|----|-----|-------|
+July 17| 6 | built the database and connected it to the app.
