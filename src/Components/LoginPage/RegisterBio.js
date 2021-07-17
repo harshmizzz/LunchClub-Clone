@@ -1,7 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./RegisterBio.css";
+import firebase from "firebase";
 import { auth } from "../Features/firebase";
+import userEvent from "@testing-library/user-event";
 function RegisterBio() {
   let history = useHistory();
   function handleback() {
@@ -9,9 +11,19 @@ function RegisterBio() {
   }
   function handlenext() {
     history.push("/verification");
-    auth.currentUser.sendEmailVerification().then(() => {
-      console.log("send");
-    });
+    var actionCodeSettings = {
+      url: "http://localhost:3000/main",
+      handleCodeInApp: true,
+    };
+    var email = auth.currentUser.email;
+
+    console.log(email);
+
+    auth.currentUser
+      .sendEmailVerification({
+        url: "http://localhost:3000/main",
+      })
+      .then(() => {});
   }
 
   return (

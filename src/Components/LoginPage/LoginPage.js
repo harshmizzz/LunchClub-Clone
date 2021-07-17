@@ -8,26 +8,43 @@ function LoginPage() {
   const [name, setname] = useState("");
   const dispatch = useDispatch();
   const login = () => {
-    if (auth.isSignInWithEmailLink(window.location.href)) {
-      var email = window.localStorage.getItem("emailForSignIn");
-      auth
-        .signInWithEmailLink(email, window.location.href)
-        .then((result) => {
-          window.localStorage.removeItem("emailForSignIn");
-        })
-        .then((userAuth) => {
-          dispatch(
-            login({
-              email: userAuth.email,
-              uid: userAuth.uid,
-              name: userAuth.displayName,
+    const actionCodeSettings = {
+      handleCodeInApp: true,
+      url: "http://localhost:3000/main",
+    };
+    firebase
+      .auth()
+      .fetchSignInMethodsForEmail(email)
+      .then((signInMethods) => {
+        if (signInMethods.length === 0) {
+alert("User not exist")
+        } else {
+          auth
+            .sendSignInLinkToEmail(email, actionCodeSettings)
+            .then(() => {
+              window.localStorage.setItem("emailForSignIn", email);
             })
-          );
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+            .catch((error) => {
+              var errorCode = error.code;
+              console.log(errorCode);
+              var errorMessage = error.message;
+              console.log(errorMessage);
+              // ...
+            });
+        }
+      });
+    // auth
+    //   .sendSignInLinkToEmail(email, actionCodeSettings)
+    //   .then(() => {
+    //     window.localStorage.setItem("emailForSignIn", email);
+    //   })
+    //   .catch((error) => {
+    //     var errorCode = error.code;
+    //     console.log(errorCode);
+    //     var errorMessage = error.message;
+    //     console.log(errorMessage);
+    //     // ...
+    //   });
   };
 
   const registerGoogle = () => {
@@ -67,36 +84,7 @@ function LoginPage() {
       }
     });
   };
-  const register = () => {
-    var actionCodeSettings = {
-      url: "http://localhost:3000/main",
-      handleCodeInApp: true,
-    };
-    auth
-      .sendSignInLinkToEmail(email, actionCodeSettings)
-      .then(() => {
-        window.localStorage.setItem("emailForSignIn", email);
-      })
-      .then((userAuth) => {
-        userAuth.user.then(() => {
-          dispatch(
-            login({
-              email: userAuth.user.email,
-              // name: userAuth.displayName,
-              name: userAuth.user.name,
-              uid: userAuth.user.uid,
-            })
-          );
-        });
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        console.log(errorCode);
-        var errorMessage = error.message;
-        console.log(errorMessage);
-        // ...
-      });
-  };
+
   return (
     <div className="loginpage">
       <div className="loginpage_logo">
@@ -121,7 +109,11 @@ function LoginPage() {
           </div>
         </button>
         <hr />
-        <input type="email" placeholder="Email" />
+        <input
+          type={email}
+          onChange={(e) => setemail(e.target.value)}
+          placeholder="Email"
+        />
         <button className="loginpage_main_send" onClick={login}>
           Send me a login link
         </button>

@@ -120,7 +120,7 @@ function Header() {
             <div className="header_profile_img">
               {user && (
                 <>
-                  <img src={user.photoURL} alt="" />
+                  <img src={user?.photoURL} alt="" />
                 </>
               )}
               <ArrowDropDownOutlinedIcon color="#1f2020" />

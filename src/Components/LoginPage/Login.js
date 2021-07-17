@@ -7,18 +7,18 @@ import { auth } from "../Features/firebase";
 import Testimonials from "./Testimonials";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Login() {
   const [data1, setdata] = useState([]);
   const [data2, setdata2] = useState([]);
   const [email, setemail] = useState("");
-  const [name ,setname] = useState("");
+  const [name, setname] = useState("");
   const dispatch = useDispatch();
   var history = useHistory();
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("https://reqres.in/api/users?page=1");
       setdata(res.data.data);
-      
     };
     fetchPosts();
   }, []);
@@ -58,9 +58,10 @@ function Login() {
       });
     auth.onAuthStateChanged((user) => {
       if (user) {
-        window.location = "/after";
+      window.location = "/after";
       }
     });
+    
   };
 
   const register = () => {
@@ -72,17 +73,6 @@ function Login() {
       .sendSignInLinkToEmail(email, actionCodeSettings)
       .then(() => {
         window.localStorage.setItem("emailForSignIn", email);
-      })
-      .then((userAuth) => {
-        userAuth.user.then(() => {
-          dispatch(
-            login({
-              email: userAuth.user.email,
-              uid: userAuth.user.uid,
-              name:userAuth.user.displayName,
-            })
-          );
-        });
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -106,9 +96,11 @@ function Login() {
             />
           </div>
           <div className="header_login">
-            <a href="/weekly">
-              <p>Log in</p>
-            </a>
+            <Link to="/weekly">
+              <a href="#">
+                <p>Log in</p>
+              </a>
+            </Link>
           </div>
         </div>
         <div className="signup_content">

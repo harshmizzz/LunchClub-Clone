@@ -49,22 +49,22 @@ function App() {
             <Header />
             <Main />
           </Route>
-          <Route path="/weekly">
+          <Route path="/weekly" exact>
             <LoginPage />
           </Route>
-          <Route path="/after">
+          <Route path="/after" exact>
             <AfterSignUp />
           </Route>
-          <Route path="/details">
+          <Route path="/details" exact>
             <Details />
           </Route>
-          <Route path="/registerprofile">
+          <Route path="/registerprofile" exact>
             <RegisterProfile />
           </Route>
-          <Route path="/registerbio">
+          <Route path="/registerbio" exact>
             <RegisterBio />
           </Route>
-          <Route path="/verification">
+          <Route path="/verification" exact>
             <Verification />
           </Route>
           <Route path="/home" exact>

@@ -1,14 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { storage } from "../Features/firebase";
 import "./RegisterProfile.css";
 function RegisterProfile() {
-  const inputFile = useRef(null);
-
-  const onButtonClick = () => {
-    inputFile.current.click();
-  };
   let history = useHistory();
-
+  const allInputs = { imgUrl: "" };
+  const [imageAsFile, setImageAsFile] = useState("");
+  const [imageAsUrl, setImageAsUrl] = useState(allInputs);
   function handleBack() {
     history.push("/details");
   }
@@ -16,6 +14,12 @@ function RegisterProfile() {
   function handleNext() {
     history.push("/registerbio");
   }
+
+  console.log(imageAsFile);
+  const handleImageAsFile = (e) => {
+    const image = e.target.files[0];
+    setImageAsFile((imageFile) => image);
+  };
 
   return (
     <div className="registerProfile">
@@ -141,15 +145,10 @@ function RegisterProfile() {
           <p>Is This You?</p>
           <p className="optional">Optional!</p>
           <div class="register_upload">
-            <button onClick={onButtonClick} class="register_upload_button">
-              Upload image
-            </button>
-            <input
-              type="file"
-              id="file"
-              ref={inputFile}
-              style={{ display: "none" }}
-            />
+            <button onChange={handleImageAsFile} class="register_upload_button">Upload image</button>
+            <form>
+              <input title="Image"  type="file" id="file" placeholder="text" style={{ display: "flex" }} />
+            </form>
           </div>
           <div className="register_soicalLinks">
             <div className="register_socialLinks_main">

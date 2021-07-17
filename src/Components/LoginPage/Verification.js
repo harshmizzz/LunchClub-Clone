@@ -3,9 +3,11 @@ import "./Verifications.css";
 import { auth } from "../Features/firebase";
 function Verification() {
   function resend() {
-    auth.currentUser.sendEmailVerification().then(() => {
-      console.log("send");
-    });
+    auth.currentUser
+      .sendEmailVerification({
+        url: "http://localhost:3000/main?confirm_email=true",
+      })
+      .then(() => {});
   }
   return (
     <div className="verification">
@@ -109,7 +111,9 @@ function Verification() {
           We use email from <b>hello@lunchclub.ai</b> to communicate with you,
           so please make sure this email is not filtered out.
         </p>
-        <p onClick={resend} className="verification_clickable">Did not receive an email? Click here to resend.</p>
+        <p onClick={resend} className="verification_clickable">
+          Did not receive an email? Click here to resend.
+        </p>
       </div>
     </div>
   );

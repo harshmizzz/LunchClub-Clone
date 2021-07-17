@@ -183,8 +183,8 @@
     transition: all 0.2s ease 0s;
 }
 
-.register_upload>button>input {
-    display: none;
+.register_upload>button>form >input {
+    /* display: none; */
 }
 
 .register_socialLinks {

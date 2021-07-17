@@ -1,5 +1,5 @@
 import firebase from "firebase";
-
+import 'firebase/storage'
 const firebaseConfig = {
   apiKey: "AIzaSyCDt4jmJalKmMzZsNABdp3Yr4lft5jnS3I",
   authDomain: "lunchclub-clone.firebaseapp.com",
@@ -11,5 +11,5 @@ const firebaseConfig = {
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-
-export { auth };
+const storage = firebase.storage()
+export { auth , storage};
