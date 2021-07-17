@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./RegisterBio.css";
 import firebase from "firebase";
-import { auth } from "../Features/firebase";
-import userEvent from "@testing-library/user-event";
+import { selectUser } from "../Features/userSlice";
+import { auth, db } from "../Features/firebase";
+import { useSelector } from "react-redux";
 function RegisterBio() {
   let history = useHistory();
+  const [bio, setbio] = useState("");
+  const user = useSelector(selectUser);
   function handleback() {
     history.push("/registerprofile");
   }
@@ -24,6 +27,10 @@ function RegisterBio() {
         url: "http://localhost:3000/main",
       })
       .then(() => {});
+
+    db.collection("users").doc(user.uid).update({
+      bio: bio,
+    });
   }
 
   return (
@@ -147,7 +154,16 @@ function RegisterBio() {
               Tell us whatever you'd like to share with your matches.
             </p>
           </div>
-          <textarea placeholder="Bio" cols="30" rows="10"></textarea>
+          <form>
+            <textarea
+              value={bio}
+              onChange={(e) => setbio(e.target.value)}
+              required
+              placeholder="Bio"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </form>
           <p className="registerbio_warning">
             0 characters (minimum 15 characters)
           </p>
@@ -199,7 +215,11 @@ function RegisterBio() {
           <button onClick={handleback} className="registerbio_back">
             Back
           </button>
-          <button onClick={handlenext} className="registerbio_next">
+          <button
+            type="submit"
+            onClick={handlenext}
+            className="registerbio_next"
+          >
             Next
           </button>
         </div>

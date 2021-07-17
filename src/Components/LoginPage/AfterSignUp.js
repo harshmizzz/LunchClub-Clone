@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./AfterSignUp.css";
 import firebase from "firebase";
+import { auth } from "../Features/firebase";
+import { useDispatch } from "react-redux";
+import { login } from "../Features/userSlice";
 function AfterSignUp() {
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
@@ -21,6 +24,27 @@ function AfterSignUp() {
     }
   }, []);
 
+  const dispatch = useDispatch();
+
+  const updatename = () => {
+    firebase
+      .auth()
+      .currentUser.updateProfile({
+        displayName: firstname + " " + lastname,
+      })
+      .then(() => {
+        auth.onAuthStateChanged((userAuth) => {
+          dispatch(
+            login({
+              email: userAuth.email,
+              uid: userAuth.uid,
+              name: userAuth.displayName,
+            })
+          );
+        });
+      });
+  };
+
   return (
     <div className="aftersignup">
       <div className="after_main">
@@ -34,11 +58,27 @@ function AfterSignUp() {
           src="https://lunchclub.com/static/media/cities-graphic.e00b93ed.svg"
           alt=""
         />
-        <input val={firstname} type="text" placeholder="First Name" />
-        <input val={lastname} type="text" placeholder="Last Name" />
+        <input
+          name="firstname"
+          value={firstname}
+          onChange={(e) => setfirstname(e.target.value)}
+          type="text"
+          placeholder="First Name"
+          required
+        />
+        <input
+          name="lastname"
+          value={lastname}
+          onChange={(e) => setlastname(e.target.value)}
+          type="text"
+          placeholder="Last Name"
+          required
+        />
+
+        {console.log(firstname + " " + lastname)}
         <div className="after_main_empty"></div>
         <a href="/details">
-          <button>Lets Get Started</button>
+          <button onClick={updatename}>Lets Get Started</button>
         </a>
       </div>
     </div>

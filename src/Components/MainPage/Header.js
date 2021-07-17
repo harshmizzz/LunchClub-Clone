@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
@@ -12,15 +12,16 @@ import RadioButtonCheckedOutlinedIcon from "@material-ui/icons/RadioButtonChecke
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import firebase from "firebase";
-import { useDispatch } from "react-redux";
-import { auth } from "../Features/firebase";
-import { logout } from "../Features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { auth, storage } from "../Features/firebase";
+import { logout, selectUser } from "../Features/userSlice";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Header() {
   const [toggle, setToggle] = React.useState(false);
   const [display, setWidth] = React.useState("");
   const user = firebase.auth().currentUser;
+  const [imageAsUrl, setImageAsUrl] = useState("");
   const dispatch = useDispatch();
   const showMenu = () => {
     setToggle(!toggle);
@@ -30,6 +31,16 @@ function Header() {
       setWidth("block");
     }
   };
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      var storageRef = storage.ref(`/users/${user.uid}/`);
+      var profile = storageRef.child("profile.jpg");
+      profile.getDownloadURL().then((fireBaseUrl) => {
+        setImageAsUrl(fireBaseUrl);
+      });
+    });
+  });
 
   const history = useHistory();
   const logoutofApp = () => {
@@ -120,7 +131,10 @@ function Header() {
             <div className="header_profile_img">
               {user && (
                 <>
-                  <img src={user?.photoURL} alt="" />
+                  <img
+                    src={imageAsUrl}
+                    alt=""
+                  />
                 </>
               )}
               <ArrowDropDownOutlinedIcon color="#1f2020" />
@@ -131,7 +145,7 @@ function Header() {
                   <div className="header_hamburger_profile_name">
                     {user && (
                       <>
-                        <img src={user.photoURL} alt="" />
+                        <img src={imageAsUrl} alt="" />
                       </>
                     )}
                     <div className="header_hamburger_profile_data">

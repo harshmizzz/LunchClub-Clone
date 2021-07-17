@@ -1,24 +1,58 @@
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { storage } from "../Features/firebase";
+import { auth, db, storage } from "../Features/firebase";
 import "./RegisterProfile.css";
+import { login, selectUser } from "../Features/userSlice";
 function RegisterProfile() {
   let history = useHistory();
-  const allInputs = { imgUrl: "" };
+  const user = useSelector(selectUser);
+  const [linkedin, setlinkedin] = useState("")
+  const [twitter, settwitter] = useState("")
   const [imageAsFile, setImageAsFile] = useState("");
-  const [imageAsUrl, setImageAsUrl] = useState(allInputs);
+  const [imageAsUrl, setImageAsUrl] = useState("");
   function handleBack() {
     history.push("/details");
   }
 
   function handleNext() {
     history.push("/registerbio");
-  }
+    db.collection("users").doc(user.uid).update({
+      socialLink: {
+        twitter: twitter,
+        linkedin: linkedin,
+      }
+    })
 
-  console.log(imageAsFile);
+  }
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
     setImageAsFile((imageFile) => image);
+  };
+
+  const handleFireBaseUpload = (e) => {
+    e.preventDefault();
+    if (imageAsFile === "") {
+      alert(`image not selected`);
+    }
+
+    var storageRef = storage.ref(`/users/${user.uid}/`);
+
+    var profile = storageRef.child("profile.jpg");
+
+    const uploadTask = profile.put(imageAsFile);
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {},
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        profile.getDownloadURL().then((fireBaseUrl) => {
+          setImageAsUrl(fireBaseUrl);
+        });
+      }
+    );
   };
 
   return (
@@ -143,11 +177,18 @@ function RegisterProfile() {
             alt=""
           />
           <p>Is This You?</p>
-          <p className="optional">Optional!</p>
+          <p className="optional">Required</p>
           <div class="register_upload">
-            <button onChange={handleImageAsFile} class="register_upload_button">Upload image</button>
-            <form>
-              <input title="Image"  type="file" id="file" placeholder="text" style={{ display: "flex" }} />
+            <form onSubmit={handleFireBaseUpload}>
+              <input
+                onChange={handleImageAsFile}
+                title="Image"
+                type="file"
+                id="file"
+                placeholder="text"
+                style={{ display: "flex" }}
+              />
+              <button class="register_upload_button">Upload image</button>
             </form>
           </div>
           <div className="register_soicalLinks">
@@ -157,14 +198,14 @@ function RegisterProfile() {
                   src="https://lunchclub.com/static/media/linkedin-icon.f71c6710.svg"
                   alt=""
                 />
-                <input type="text" placeholder="LinkedIn url (optional)" />
+                <input value={linkedin} onChange={e => setlinkedin(e.target.value)} type="text" placeholder="LinkedIn url (optional)" />
               </div>
               <div className="register_twitter">
                 <img
                   src="https://lunchclub.com/static/media/twitter-icon.42e1781d.svg"
                   alt=""
                 />
-                <input type="text" placeholder="Twitter url (optional)" />
+                <input value={twitter} onChange={e=> settwitter(e.target.value)} type="text" placeholder="Twitter url (optional)" />
               </div>
             </div>
           </div>

@@ -37,7 +37,6 @@ function App() {
     });
   }, []);
 
-  const user = useSelector(selectUser);
   return (
     <Router>
       <div className="app">

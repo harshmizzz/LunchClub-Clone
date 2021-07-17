@@ -2,16 +2,28 @@ import React, { useMemo, useState } from "react";
 import "./Details.css";
 import { useHistory } from "react-router";
 import Select from "react-select";
+import firebase from "firebase";
 import countryList from "react-select-country-list";
+import { db } from "../Features/firebase";
+import { useSelector } from "react-redux";
+import { selectUser } from "../Features/userSlice";
 function Details() {
+  const user = firebase.auth().currentUser;
+  const user1 = useSelector(selectUser)
   const [value, setValue] = useState("");
   const options = useMemo(() => countryList().getData(), []);
   let history = useHistory();
   const changeHandler = (value) => {
     setValue(value);
-     
-     history.push('/registerprofile');
+    db.collection("users").doc(user1.uid).set({
+      name: user.displayName,
+      email: user.email,
+      location: value.label,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+    history.push("/registerprofile");
   };
+
   return (
     <div className="details">
       <div className="progress_bar">
@@ -36,7 +48,6 @@ function Details() {
             <div className="progress_line_animate"></div>
           </div>
         </div>
-        
         <div className="progrss_main progress_bar3">
           <div className="icons">
             <div className="progrss_line"></div>
@@ -105,8 +116,15 @@ function Details() {
           zones. Let us know your home base.
         </p>
       </div>
+      {console.log(value.label)}
       <div className="details_country">
-        <Select className="country_selector" options={options} value={value} onChange={changeHandler} placeholder="Find Your Hub"/>
+        <Select
+          className="country_selector"
+          options={options}
+          value={value}
+          onChange={changeHandler}
+          placeholder="Find Your Hub"
+        />
       </div>
     </div>
   );

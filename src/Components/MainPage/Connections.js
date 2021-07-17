@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Connections.css";
 import firebase from "firebase";
+import { storage } from "../Features/firebase";
 function Connections() {
+  const [imageAsUrl, setImageAsUrl] = useState("");
   const user = firebase.auth().currentUser;
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      var storageRef = storage.ref(`/users/${user.uid}/`);
+      var profile = storageRef.child("profile.jpg");
+      profile.getDownloadURL().then((fireBaseUrl) => {
+        setImageAsUrl(fireBaseUrl);
+      });
+    });
+  });
   return (
     <div className="connection">
       <div className="connection_container">
@@ -14,7 +25,7 @@ function Connections() {
                 <div className="connectionProfileDataTop">
                   {user && (
                     <>
-                      <img src={user.photoURL} alt="" />
+                      <img src={imageAsUrl}  alt="" />
                     </>
                   )}
                   <div className="connectionProfilestats">
@@ -84,16 +95,23 @@ function Connections() {
                   <div className="ProfileScoreLinksBox">
                     <div className="ProfileScoreLinksName">
                       <p>Superinviters</p>
-                      <img src="https://lunchclub.com/static/media/confetti.8c87afe6.svg" alt="" />
+                      <img
+                        src="https://lunchclub.com/static/media/confetti.8c87afe6.svg"
+                        alt=""
+                      />
                     </div>
                     <p>Look at the list</p>
                   </div>
                 </a>
               </div>
             </div>
-            <p className="connectionCardSubheading">Most Connected in your network</p>
+            <p className="connectionCardSubheading">
+              Most Connected in your network
+            </p>
             <hr />
-            <div className="connectionCardUsers"><p>No Connections to show</p></div>
+            <div className="connectionCardUsers">
+              <p>No Connections to show</p>
+            </div>
           </div>
         </div>
       </div>
