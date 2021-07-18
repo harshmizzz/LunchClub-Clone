@@ -1,3 +1,5 @@
+Live Link for the project : https://lunchclub-clone.web.app/
+
 Date | Hours Spent | Work Done
 |----|-----|-------|
 July 10 |  8  | Setup the basic boilerplate and build the login function
@@ -15,3 +17,5 @@ July 15 | 1 |setup the storage and database
 July 16 | 2 | Fixed the email login and fixed all the bugs in signup and added firebase storage
 |----|-----|-------|
 July 17| 6 | built the database and connected it to the app.
+|----|-----|-------|
+July 18 | 6 | Built the userprofile page and setup all the dynamic imgages and conected database to ui
