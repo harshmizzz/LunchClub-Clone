@@ -2,12 +2,13 @@ Live Link for the project : https://lunchclub-clone.web.app/
 
 ##Features: 
 1. Already added: 
-   1) Email and Google sign in 
-   2) Retreiving and saving user data on database and storage 
-   3) Connected the ui with database for dynamic changes
+   * Email and Google sign in 
+   * Retreiving and saving user data on database and storage 
+   * Connected the ui with database for dynamic changes
+
 2. To Be added
-   1)Dynamic Users card with current users in database
-|----|-----|-------|
+   * Dynamic Users card with current users in database
+
 
 
 
