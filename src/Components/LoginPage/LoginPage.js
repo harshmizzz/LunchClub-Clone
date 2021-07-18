@@ -33,18 +33,7 @@ alert("User not exist")
             });
         }
       });
-    // auth
-    //   .sendSignInLinkToEmail(email, actionCodeSettings)
-    //   .then(() => {
-    //     window.localStorage.setItem("emailForSignIn", email);
-    //   })
-    //   .catch((error) => {
-    //     var errorCode = error.code;
-    //     console.log(errorCode);
-    //     var errorMessage = error.message;
-    //     console.log(errorMessage);
-    //     // ...
-    //   });
+
   };
 
   const registerGoogle = () => {

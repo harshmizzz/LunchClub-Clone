@@ -116,7 +116,6 @@ function Details() {
           zones. Let us know your home base.
         </p>
       </div>
-      {console.log(value.label)}
       <div className="details_country">
         <Select
           className="country_selector"

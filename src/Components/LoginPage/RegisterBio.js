@@ -20,8 +20,6 @@ function RegisterBio() {
     };
     var email = auth.currentUser.email;
 
-    console.log(email);
-
     auth.currentUser
       .sendEmailVerification({
         url: "http://localhost:3000/main",

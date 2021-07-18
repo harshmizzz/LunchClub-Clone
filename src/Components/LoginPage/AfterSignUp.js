@@ -75,7 +75,7 @@ function AfterSignUp() {
           required
         />
 
-        {console.log(firstname + " " + lastname)}
+  
         <div className="after_main_empty"></div>
         <a href="/details">
           <button onClick={updatename}>Lets Get Started</button>

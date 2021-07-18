@@ -1,14 +1,15 @@
-import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { auth, db, storage } from "../Features/firebase";
+import { db, storage } from "../Features/firebase";
 import "./RegisterProfile.css";
-import { login, selectUser } from "../Features/userSlice";
+import firebase from "firebase";
+import { selectUser } from "../Features/userSlice";
 function RegisterProfile() {
   let history = useHistory();
   const user = useSelector(selectUser);
-  const [linkedin, setlinkedin] = useState("")
-  const [twitter, settwitter] = useState("")
+  const [linkedin, setlinkedin] = useState("");
+  const [twitter, settwitter] = useState("");
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
   function handleBack() {
@@ -17,13 +18,18 @@ function RegisterProfile() {
 
   function handleNext() {
     history.push("/registerbio");
-    db.collection("users").doc(user.uid).update({
-      socialLink: {
-        twitter: twitter,
-        linkedin: linkedin,
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        db.collection("users")
+          .doc(user.uid)
+          .update({
+            socialLink: {
+              twitter: twitter,
+              linkedin: linkedin,
+            },
+          });
       }
-    })
-
+    });
   }
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
@@ -46,11 +52,6 @@ function RegisterProfile() {
       (snapShot) => {},
       (err) => {
         console.log(err);
-      },
-      () => {
-        profile.getDownloadURL().then((fireBaseUrl) => {
-          setImageAsUrl(fireBaseUrl);
-        });
       }
     );
   };
@@ -198,14 +199,24 @@ function RegisterProfile() {
                   src="https://lunchclub.com/static/media/linkedin-icon.f71c6710.svg"
                   alt=""
                 />
-                <input value={linkedin} onChange={e => setlinkedin(e.target.value)} type="text" placeholder="LinkedIn url (optional)" />
+                <input
+                  value={linkedin}
+                  onChange={(e) => setlinkedin(e.target.value)}
+                  type="text"
+                  placeholder="LinkedIn url"
+                />
               </div>
               <div className="register_twitter">
                 <img
                   src="https://lunchclub.com/static/media/twitter-icon.42e1781d.svg"
                   alt=""
                 />
-                <input value={twitter} onChange={e=> settwitter(e.target.value)} type="text" placeholder="Twitter url (optional)" />
+                <input
+                  value={twitter}
+                  onChange={(e) => settwitter(e.target.value)}
+                  type="text"
+                  placeholder="Twitter url"
+                />
               </div>
             </div>
           </div>

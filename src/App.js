@@ -19,6 +19,7 @@ import Home from "./Components/MainPage/Home";
 import Invite from "./Components/MainPage/Invite";
 import Connections from "./Components/MainPage/Connections";
 import Chat from "./Components/MainPage/Chat";
+import UserProfile from "./Components/MainPage/UserProfile";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -81,6 +82,10 @@ function App() {
           <Route path="/chat" exact>
             <Header />
             <Chat />
+          </Route>
+          <Route path="/userprofile" exact>
+            <Header />
+            <UserProfile />
           </Route>
         </Switch>
       </div>

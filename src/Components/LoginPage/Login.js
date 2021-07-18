@@ -86,7 +86,7 @@ function Login() {
 
   return (
     <div className="login">
-      {console.log(name)}
+
       <div className="top_container">
         <div className="login_header">
           <div className="logo">

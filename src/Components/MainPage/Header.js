@@ -133,6 +133,11 @@ function Header() {
                 <>
                   <img
                     src={imageAsUrl}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src =
+                        "https://www.pngitem.com/pimgs/m/522-5220445_anonymous-profile-grey-person-sticker-glitch-empty-profile.png";
+                    }}
                     alt=""
                   />
                 </>
@@ -145,22 +150,32 @@ function Header() {
                   <div className="header_hamburger_profile_name">
                     {user && (
                       <>
-                        <img src={imageAsUrl} alt="" />
+                        <img
+                          src={imageAsUrl}
+                          alt=""
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src =
+                              "https://www.pngitem.com/pimgs/m/522-5220445_anonymous-profile-grey-person-sticker-glitch-empty-profile.png";
+                          }}
+                        />
                       </>
                     )}
-                    <div className="header_hamburger_profile_data">
-                      <p className="header_hamburger_profile_data_big">
-                        {user && (
-                          <>
-                            {" "}
-                            <p>{user.displayName}</p>{" "}
-                          </>
-                        )}
-                      </p>
-                      <p className="header_hamburger_profile_data_small">
-                        View Profile
-                      </p>
-                    </div>
+                    <Link to="/userprofile">
+                      <div className="header_hamburger_profile_data">
+                        <p className="header_hamburger_profile_data_big">
+                          {user && (
+                            <>
+                              {" "}
+                              <p>{user.displayName}</p>{" "}
+                            </>
+                          )}
+                        </p>
+                        <p className="header_hamburger_profile_data_small">
+                          View Profile
+                        </p>
+                      </div>
+                    </Link>
                   </div>
                   <a>
                     <div className="header_hamburger_clubpoints">
