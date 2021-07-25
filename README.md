@@ -1,5 +1,4 @@
-Live Link for the project : https://lunchclub-clone.web.app/
-
+Live Link for the project : https://lunchclub-clone.firebaseapp.com/
 ##Features: 
 1. Already added: 
    * Email and Google sign in 
