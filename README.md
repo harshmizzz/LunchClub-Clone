@@ -1,4 +1,6 @@
 Live Link for the project : https://lunchclub-clone.firebaseapp.com/
+
+
 ##Features: 
 1. Already added: 
    * Email and Google sign in 
@@ -30,3 +32,5 @@ July 16 | 2 | Fixed the email login and fixed all the bugs in signup and added f
 July 17| 6 | built the database and connected it to the app.
 |----|-----|-------|
 July 18 | 6 | Built the userprofile page and setup all the dynamic imgages and conected database to ui
+|----|-----|-------|
+July 19 to July 24 | 0 | leave
